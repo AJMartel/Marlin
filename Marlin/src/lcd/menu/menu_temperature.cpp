@@ -153,6 +153,146 @@ void _lcd_preheat(const int16_t endnum, const int16_t temph, const int16_t tempb
     END_MENU();
   }
 
+  void menu_preheat_m3() {
+    START_MENU();
+    BACK_ITEM(MSG_TEMPERATURE);
+    #if HOTENDS == 1
+      #if HAS_HEATED_BED
+        ACTION_ITEM(MSG_PREHEAT_3, []{ _preheat_both(0, 0); });
+        ACTION_ITEM(MSG_PREHEAT_3_END, []{ _preheat_end(0, 0); });
+      #else
+        ACTION_ITEM(MSG_PREHEAT_3, []{ _preheat_end(0, 0); });
+      #endif
+    #elif HOTENDS > 1
+      #if HAS_HEATED_BED
+        _PREHEAT_ITEMS(3,0);
+      #endif
+      for (uint8_t n = 1; n < HOTENDS; n++) PREHEAT_ITEMS(3,n);
+      ACTION_ITEM(MSG_PREHEAT_3_ALL, []() {
+        #if HAS_HEATED_BED
+          _preheat_bed(0);
+        #endif
+        HOTEND_LOOP() thermalManager.setTargetHotend(ui.preheat_hotend_temp[0], e);
+      });
+    #endif // HOTENDS > 1
+    #if HAS_HEATED_BED
+      ACTION_ITEM(MSG_PREHEAT_3_BEDONLY, []{ _preheat_bed(0); });
+    #endif
+    END_MENU();
+  }
+
+  void menu_preheat_m4() {
+    START_MENU();
+    BACK_ITEM(MSG_TEMPERATURE);
+    #if HOTENDS == 1
+      #if HAS_HEATED_BED
+        ACTION_ITEM(MSG_PREHEAT_4, []{ _preheat_both(0, 0); });
+        ACTION_ITEM(MSG_PREHEAT_4_END, []{ _preheat_end(0, 0); });
+      #else
+        ACTION_ITEM(MSG_PREHEAT_4, []{ _preheat_end(0, 0); });
+      #endif
+    #elif HOTENDS > 1
+      #if HAS_HEATED_BED
+        _PREHEAT_ITEMS(4,0);
+      #endif
+      for (uint8_t n = 1; n < HOTENDS; n++) PREHEAT_ITEMS(4,n);
+      ACTION_ITEM(MSG_PREHEAT_4_ALL, []() {
+        #if HAS_HEATED_BED
+          _preheat_bed(0);
+        #endif
+        HOTEND_LOOP() thermalManager.setTargetHotend(ui.preheat_hotend_temp[0], e);
+      });
+    #endif // HOTENDS > 1
+    #if HAS_HEATED_BED
+      ACTION_ITEM(MSG_PREHEAT_4_BEDONLY, []{ _preheat_bed(0); });
+    #endif
+    END_MENU();
+  }
+
+  void menu_preheat_m5() {
+    START_MENU();
+    BACK_ITEM(MSG_TEMPERATURE);
+    #if HOTENDS == 1
+      #if HAS_HEATED_BED
+        ACTION_ITEM(MSG_PREHEAT_5, []{ _preheat_both(0, 0); });
+        ACTION_ITEM(MSG_PREHEAT_5_END, []{ _preheat_end(0, 0); });
+      #else
+        ACTION_ITEM(MSG_PREHEAT_5, []{ _preheat_end(0, 0); });
+      #endif
+    #elif HOTENDS > 1
+      #if HAS_HEATED_BED
+        _PREHEAT_ITEMS(5,0);
+      #endif
+      for (uint8_t n = 1; n < HOTENDS; n++) PREHEAT_ITEMS(5,n);
+      ACTION_ITEM(MSG_PREHEAT_5_ALL, []() {
+        #if HAS_HEATED_BED
+          _preheat_bed(0);
+        #endif
+        HOTEND_LOOP() thermalManager.setTargetHotend(ui.preheat_hotend_temp[0], e);
+      });
+    #endif // HOTENDS > 1
+    #if HAS_HEATED_BED
+      ACTION_ITEM(MSG_PREHEAT_5_BEDONLY, []{ _preheat_bed(0); });
+    #endif
+    END_MENU();
+  }
+
+  void menu_preheat_m6() {
+    START_MENU();
+    BACK_ITEM(MSG_TEMPERATURE);
+    #if HOTENDS == 1
+      #if HAS_HEATED_BED
+        ACTION_ITEM(MSG_PREHEAT_6, []{ _preheat_both(0, 0); });
+        ACTION_ITEM(MSG_PREHEAT_6_END, []{ _preheat_end(0, 0); });
+      #else
+        ACTION_ITEM(MSG_PREHEAT_6, []{ _preheat_end(0, 0); });
+      #endif
+    #elif HOTENDS > 1
+      #if HAS_HEATED_BED
+        _PREHEAT_ITEMS(6,0);
+      #endif
+      for (uint8_t n = 1; n < HOTENDS; n++) PREHEAT_ITEMS(6,n);
+      ACTION_ITEM(MSG_PREHEAT_6_ALL, []() {
+        #if HAS_HEATED_BED
+          _preheat_bed(0);
+        #endif
+        HOTEND_LOOP() thermalManager.setTargetHotend(ui.preheat_hotend_temp[0], e);
+      });
+    #endif // HOTENDS > 1
+    #if HAS_HEATED_BED
+      ACTION_ITEM(MSG_PREHEAT_6_BEDONLY, []{ _preheat_bed(0); });
+    #endif
+    END_MENU();
+  }
+
+  void menu_preheat_m7() {
+    START_MENU();
+    BACK_ITEM(MSG_TEMPERATURE);
+    #if HOTENDS == 1
+      #if HAS_HEATED_BED
+        ACTION_ITEM(MSG_PREHEAT_7, []{ _preheat_both(0, 0); });
+        ACTION_ITEM(MSG_PREHEAT_7_END, []{ _preheat_end(0, 0); });
+      #else
+        ACTION_ITEM(MSG_PREHEAT_7, []{ _preheat_end(0, 0); });
+      #endif
+    #elif HOTENDS > 1
+      #if HAS_HEATED_BED
+        _PREHEAT_ITEMS(7,0);
+      #endif
+      for (uint8_t n = 1; n < HOTENDS; n++) PREHEAT_ITEMS(7,n);
+      ACTION_ITEM(MSG_PREHEAT_7_ALL, []() {
+        #if HAS_HEATED_BED
+          _preheat_bed(0);
+        #endif
+        HOTEND_LOOP() thermalManager.setTargetHotend(ui.preheat_hotend_temp[0], e);
+      });
+    #endif // HOTENDS > 1
+    #if HAS_HEATED_BED
+      ACTION_ITEM(MSG_PREHEAT_7_BEDONLY, []{ _preheat_bed(0); });
+    #endif
+    END_MENU();
+  }
+
   void lcd_cooldown() {
     thermalManager.zero_fan_speeds();
     thermalManager.disable_all_heaters();

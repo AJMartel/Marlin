@@ -327,6 +327,46 @@ void _lcd_ubl_build_mesh() {
       "M104 S0\n"
       "M140 S0"
     ));
+    GCODES_ITEM(MSG_UBL_BUILD_MESH_M3, PSTR(
+      "G28\n"
+      "M190 S" STRINGIFY(PREHEAT_3_TEMP_BED) "\n"
+      "M109 S" STRINGIFY(PREHEAT_3_TEMP_HOTEND) "\n"
+      "G29 P1\n"
+      "M104 S0\n"
+      "M140 S0"
+    ));
+    GCODES_ITEM(MSG_UBL_BUILD_MESH_M4, PSTR(
+      "G28\n"
+      "M190 S" STRINGIFY(PREHEAT_4_TEMP_BED) "\n"
+      "M109 S" STRINGIFY(PREHEAT_4_TEMP_HOTEND) "\n"
+      "G29 P1\n"
+      "M104 S0\n"
+      "M140 S0"
+    ));
+    GCODES_ITEM(MSG_UBL_BUILD_MESH_M5, PSTR(
+      "G28\n"
+      "M190 S" STRINGIFY(PREHEAT_5_TEMP_BED) "\n"
+      "M109 S" STRINGIFY(PREHEAT_5_TEMP_HOTEND) "\n"
+      "G29 P1\n"
+      "M104 S0\n"
+      "M140 S0"
+    ));
+    GCODES_ITEM(MSG_UBL_BUILD_MESH_M6, PSTR(
+      "G28\n"
+      "M190 S" STRINGIFY(PREHEAT_6_TEMP_BED) "\n"
+      "M109 S" STRINGIFY(PREHEAT_6_TEMP_HOTEND) "\n"
+      "G29 P1\n"
+      "M104 S0\n"
+      "M140 S0"
+    ));
+    GCODES_ITEM(MSG_UBL_BUILD_MESH_M7, PSTR(
+      "G28\n"
+      "M190 S" STRINGIFY(PREHEAT_7_TEMP_BED) "\n"
+      "M109 S" STRINGIFY(PREHEAT_7_TEMP_HOTEND) "\n"
+      "G29 P1\n"
+      "M104 S0\n"
+      "M140 S0"
+    ));
   #else
     GCODES_ITEM(MSG_UBL_BUILD_MESH_M1, PSTR(
       "G28\n"
@@ -337,6 +377,36 @@ void _lcd_ubl_build_mesh() {
     GCODES_ITEM(MSG_UBL_BUILD_MESH_M2, PSTR(
       "G28\n"
       "M109 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND) "\n"
+      "G29 P1\n"
+      "M104 S0"
+    ));
+    GCODES_ITEM(MSG_UBL_BUILD_MESH_M3, PSTR(
+      "G28\n"
+      "M109 S" STRINGIFY(PREHEAT_3_TEMP_HOTEND) "\n"
+      "G29 P1\n"
+      "M104 S0"
+    ));
+    GCODES_ITEM(MSG_UBL_BUILD_MESH_M4, PSTR(
+      "G28\n"
+      "M109 S" STRINGIFY(PREHEAT_4_TEMP_HOTEND) "\n"
+      "G29 P1\n"
+      "M104 S0"
+    ));
+    GCODES_ITEM(MSG_UBL_BUILD_MESH_M5, PSTR(
+      "G28\n"
+      "M109 S" STRINGIFY(PREHEAT_5_TEMP_HOTEND) "\n"
+      "G29 P1\n"
+      "M104 S0"
+    ));
+    GCODES_ITEM(MSG_UBL_BUILD_MESH_M6, PSTR(
+      "G28\n"
+      "M109 S" STRINGIFY(PREHEAT_6_TEMP_HOTEND) "\n"
+      "G29 P1\n"
+      "M104 S0"
+    ));
+    GCODES_ITEM(MSG_UBL_BUILD_MESH_M7, PSTR(
+      "G28\n"
+      "M109 S" STRINGIFY(PREHEAT_7_TEMP_HOTEND) "\n"
       "G29 P1\n"
       "M104 S0"
     ));
