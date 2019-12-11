@@ -2605,13 +2605,13 @@
 
   #define USER_DESC_4 "Move Bed Forward"
   #define USER_GCODE_4 "G28 X0 Y0\nG1 X0 Y180 F3000\nM84" //move X/Y to min endstops & Feed the bed forward & steppers off
-
+ 
+  #define USER_DESC_5 "Bed Maintenance"
+  #define USER_GCODE_5 "M190 S" STRINGIFY(PREHEAT_1_TEMP_BED)"\nG28\nG1 Z50 F5000\nG1 X0 Y0 F5000\nG4 S120\nM104 S0\nG28\nM84"
+  
   /*
-  #define USER_DESC_5 "Preheat for " PREHEAT_1_LABEL
-  #define USER_GCODE_5 "M140 S" STRINGIFY(PREHEAT_1_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_1_TEMP_HOTEND)
-
-  #define USER_DESC_6 "Preheat for " PREHEAT_2_LABEL
-  #define USER_GCODE_6 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nM104 S" STRINGIFY(PREHEAT_2_TEMP_HOTEND)
+  #define USER_DESC_6 "Bed Maintenance"
+  #define USER_GCODE_6 "M190 S" STRINGIFY(PREHEAT_1_TEMP_BED)"\nG28\nG1 Z50 F5000\nG1 X0 Y0 F5000\nG4 S120\nM104 S0\nG28\nM84"
 
   #define USER_DESC_7 "Heat Bed/Home/Level"
   #define USER_GCODE_7 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
