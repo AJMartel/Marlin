@@ -2601,7 +2601,13 @@
   #define USER_GCODE_2 "G28\nG29 P4 R999 T\nG29 S0 A F10\nM500"
 
   #define USER_DESC_3 "Print Test Pattern"
-  #define USER_GCODE_3 "G26 C P O2.25" //Do a typical test sequence
+  /*  G26 Bxx Hyy F1.75 L0.2 S0.4 will usually get you something reasonable:
+        Bxx – bed temperature
+        Hyy – hotend temperature
+        F1.75 – filament width of 1.75mm (default)
+        L0.2 – layer height of 0.2mm (default)
+        S0.4 – nozzle diameter of 0.4mm (default)  */
+  #define USER_GCODE_3 "G26 B205 H60 F1.75 L0.2 S0.4" //Do a typical test sequence
 
   #define USER_DESC_4 "Move Bed Forward"
   #define USER_GCODE_4 "G28 X0 Y0\nG1 X0 Y180 F3000\nM84" //move X/Y to min endstops & Feed the bed forward & steppers off
