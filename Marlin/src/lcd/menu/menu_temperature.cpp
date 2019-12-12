@@ -373,21 +373,49 @@ void menu_temperature() {
     // Preheat for Materials 1 through 7
     //
     #if TEMP_SENSOR_1 != 0 || TEMP_SENSOR_2 != 0 || TEMP_SENSOR_3 != 0 || TEMP_SENSOR_4 != 0 || TEMP_SENSOR_5 != 0 || HAS_HEATED_BED
-      SUBMENU(MSG_PREHEAT_1, menu_preheat_m1);
-      SUBMENU(MSG_PREHEAT_2, menu_preheat_m2);
-      SUBMENU(MSG_PREHEAT_3, menu_preheat_m3);
-      SUBMENU(MSG_PREHEAT_4, menu_preheat_m4);
-      SUBMENU(MSG_PREHEAT_5, menu_preheat_m5);
-      SUBMENU(MSG_PREHEAT_6, menu_preheat_m6);
-      SUBMENU(MSG_PREHEAT_7, menu_preheat_m7);
+      #if defined(PREHEAT_1_LABEL)
+        SUBMENU(MSG_PREHEAT_1, menu_preheat_m1);
+      #endif
+      #if defined(PREHEAT_2_LABEL)
+        SUBMENU(MSG_PREHEAT_2, menu_preheat_m2);
+      #endif
+      #if defined(PREHEAT_3_LABEL)
+        SUBMENU(MSG_PREHEAT_3, menu_preheat_m3);
+      #endif
+      #if defined(PREHEAT_4_LABEL)
+        SUBMENU(MSG_PREHEAT_4, menu_preheat_m4);
+      #endif
+      #if defined(PREHEAT_5_LABEL)
+        SUBMENU(MSG_PREHEAT_5, menu_preheat_m5);
+      #endif
+      #if defined(PREHEAT_6_LABEL)
+        SUBMENU(MSG_PREHEAT_6, menu_preheat_m6);
+      #endif
+      #if defined(PREHEAT_7_LABEL)
+        SUBMENU(MSG_PREHEAT_7, menu_preheat_m7);
+      #endif
     #else
-      ACTION_ITEM(MSG_PREHEAT_1, []{ _preheat_end(0, 0); });
-      ACTION_ITEM(MSG_PREHEAT_2, []{ _preheat_end(1, 0); });
-      ACTION_ITEM(MSG_PREHEAT_3, []{ _preheat_end(2, 0); });
-      ACTION_ITEM(MSG_PREHEAT_4, []{ _preheat_end(3, 0); });
-      ACTION_ITEM(MSG_PREHEAT_5, []{ _preheat_end(4, 0); });
-      ACTION_ITEM(MSG_PREHEAT_6, []{ _preheat_end(5, 0); });
-      ACTION_ITEM(MSG_PREHEAT_7, []{ _preheat_end(6, 0); });
+      #if defined(PREHEAT_1_LABEL)
+        ACTION_ITEM(MSG_PREHEAT_1, []{ _preheat_end(0, 0); });
+      #endif
+      #if defined(PREHEAT_2_LABEL)
+        ACTION_ITEM(MSG_PREHEAT_2, []{ _preheat_end(1, 0); });
+      #endif
+      #if defined(PREHEAT_3_LABEL)
+        ACTION_ITEM(MSG_PREHEAT_3, []{ _preheat_end(2, 0); });
+      #endif
+      #if defined(PREHEAT_4_LABEL)
+        ACTION_ITEM(MSG_PREHEAT_4, []{ _preheat_end(3, 0); });
+      #endif
+      #if defined(PREHEAT_5_LABEL)
+        ACTION_ITEM(MSG_PREHEAT_5, []{ _preheat_end(4, 0); });
+      #endif
+      #if defined(PREHEAT_6_LABEL)
+        ACTION_ITEM(MSG_PREHEAT_6, []{ _preheat_end(5, 0); });
+      #endif
+      #if defined(PREHEAT_7_LABEL)
+        ACTION_ITEM(MSG_PREHEAT_7, []{ _preheat_end(6, 0); });
+      #endif
     #endif
 
     //
