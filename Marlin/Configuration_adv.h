@@ -2602,12 +2602,12 @@
 
   #define USER_DESC_3 "Print Test Pattern"
   /*  G26 Bxx Hyy F1.75 L0.2 S0.4 will usually get you something reasonable:
-        Bxx – bed temperature
-        Hyy – hotend temperature
-        F1.75 – filament width of 1.75mm (default)
-        L0.2 – layer height of 0.2mm (default)
-        S0.4 – nozzle diameter of 0.4mm (default)  */
-  #define USER_GCODE_3 "G26 B205 H60 F1.75 L0.2 S0.4" //Do a typical test sequence
+        Bxx – bed temperature                        MESH_TEST_BED_TEMP
+        Hyy – hotend temperature                     MESH_TEST_HOTEND_TEMP
+        F1.75 – filament width of 1.75mm (default)   DEFAULT_NOMINAL_FILAMENT_DIA
+        L0.2 – layer height of 0.2mm (default)       MESH_TEST_BED_TEMP
+        S0.4 – nozzle diameter of 0.4mm (default)    MESH_TEST_NOZZLE_SIZE */
+  #define USER_GCODE_3 "G26 B60 H205 F1.75 L0.2 S0.4" //Do a typical test sequence
 
   #define USER_DESC_4 "Move Bed Forward"
   #define USER_GCODE_4 "G28 X0 Y0\nG1 X0 Y180 F3000\nM84" //move X/Y to min endstops & Feed the bed forward & steppers off
