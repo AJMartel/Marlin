@@ -2594,11 +2594,25 @@
   #define USER_SCRIPT_AUDIBLE_FEEDBACK
   //#define USER_SCRIPT_RETURN  // Return to status screen after a script
 
-  #define USER_DESC_1 "Probe Mesh&Save"
-  #define USER_GCODE_1 "G28\nG29 P1\nG29 P3 T0\nG29 S0 A F10\nG29 J2\nM500"
+  #if ENABLED (PROBE_MANUALLY)
+    #define USER_DESC_1 "Manual UBL" //Use nozzle & paper to setup UBL
+    #define USER_GCODE_1 "G28\nG29 P4 R999\nG29 A\nG29 S\nM500"
 
-  #define USER_DESC_2 "Manual Mesh&Save"
-  #define USER_GCODE_2 "G28\nG29 P4 R999 T\nG29 S0 A F10\nM500"
+    #define USER_DESC_2 "Manual Mesh&Save"
+    #define USER_GCODE_2 "G28\nG29 P4 R999 T\nG29 S0 A F10\nM500"
+  #else 
+    #define USER_DESC_1 "Probe UBL" //Use probe to setup UBL.
+    #define USER_GCODE_1 "G28\nG29 P1\nG29 P3\nG29 A\nG29 S\nM500"
+
+    #define USER_DESC_2 "Probe Mesh&Save"
+    #define USER_GCODE_2 "G28\nG29 P1\nG29 P3 T0\nG29 S0 A F10\nG29 J2\nM500"
+
+    #define USER_DESC_21 "Tilt Mesh" //Tilt existing mesh using probe
+    #define USER_GCODE_21 "G29 J2\nM500"
+
+    #define USER_DESC_22 "Long Probe Test"
+    #define USER_GCODE_22 "G28\nM48 P20"
+  #endif
 
   #define USER_DESC_3 "Print Test Pattern"
   /*  G26 Bxx Hyy F1.75 L0.2 S0.4 will usually get you something reasonable:
@@ -2617,12 +2631,54 @@
   
   #define USER_DESC_6 "Abort & Clean Up"
   #define USER_GCODE_6 "M117 Shutting down Print\nM25\nG91\nG0 Z10\n\nG0 E-5\M400\nG90\nM104 S10\nM140 S20\nG0 X0 Y0"
-  /*
-  #define USER_DESC_7 "Heat Bed/Home/Level"
-  #define USER_GCODE_7 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
 
-  #define USER_DESC_20 "Home & Info"
-  #define USER_GCODE_20 "G28\nM503"
+  #define USER_DESC_7 "Adjust Point Near" //Adjust nearest mesh point
+  #define USER_GCODE_7 "G29 P4\nM500"
+
+  #define USER_DESC_8 "Lin Adv Off"
+  #define USER_GCODE_8 "M900 K0\nM500"
+
+  #define USER_DESC_9 "Lin Adv K0.2"
+  #define USER_GCODE_9 "M900 K0.2\nM500"
+
+  #define USER_DESC_10 "Lin Adv K0.3"
+  #define USER_GCODE_10 "M900 K0.3\nM500"
+
+  #define USER_DESC_11 "Lin Adv K0.4"
+  #define USER_GCODE_11 "M900 K0.4\nM500"
+
+  #define USER_DESC_12 "Lin Adv K0.5"
+  #define USER_GCODE_12 "M900 K0.5\nM500"
+
+  #define USER_DESC_13 "Lin Adv K0.6"
+  #define USER_GCODE_13 "M900 K0.6\nM500"
+
+  #define USER_DESC_14 "Park Toolhead"
+  #define USER_GCODE_14 "G27"
+
+  #define USER_DESC_15 "Clean Toolhead"
+  #define USER_GCODE_15 "G12"
+
+  #define USER_DESC_16 "Unconditional STOP"
+  #define USER_GCODE_16 "M1"
+
+  #define USER_DESC_17 "Continue"
+  #define USER_GCODE_17 "M108"
+
+  #define USER_DESC_18 "Emergency STOP"
+  #define USER_GCODE_18 "M112"
+
+  #define USER_DESC_19 "PID Autotune End"
+  #define USER_GCODE_19 "M303 U1 E0 S200 C8\nM500"
+
+  #define USER_DESC_20 "PID Autotune Bed"
+  #define USER_GCODE_20 "M303 U1 E-1 S60 C8\nM500"
+  /*
+  #define USER_DESC_23 "Heat Bed/Home/Level"
+  #define USER_GCODE_23 "M140 S" STRINGIFY(PREHEAT_2_TEMP_BED) "\nG28\nG29"
+
+  #define USER_DESC_24 "Home & Info"
+  #define USER_GCODE_24 "G28\nM503"
   */
 #endif
 
