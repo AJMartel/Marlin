@@ -65,7 +65,7 @@ void menu_user() {
   #if defined(USER_DESC_5) && defined(USER_GCODE_5)
     ACTION_ITEM_P(PSTR(USER_DESC_5), []{ _lcd_user_gcode(PSTR(USER_GCODE_5 _DONE_SCRIPT)); });
   #endif
-    #if defined(USER_DESC_6) && defined(USER_GCODE_6)
+  #if defined(USER_DESC_6) && defined(USER_GCODE_6)
     ACTION_ITEM_P(PSTR(USER_DESC_6), []{ _lcd_user_gcode(PSTR(USER_GCODE_6 _DONE_SCRIPT)); });
   #endif
   #if defined(USER_DESC_7) && defined(USER_GCODE_7)
@@ -109,6 +109,21 @@ void menu_user() {
   #endif
   #if defined(USER_DESC_20) && defined(USER_GCODE_20)
     ACTION_ITEM_P(PSTR(USER_DESC_20), []{ _lcd_user_gcode(PSTR(USER_GCODE_20 _DONE_SCRIPT)); });
+  #endif
+    #if defined(USER_DESC_21) && defined(USER_GCODE_21)
+    ACTION_ITEM_P(PSTR(USER_DESC_21), []{ _lcd_user_gcode(PSTR(USER_GCODE_21 _DONE_SCRIPT)); });
+  #endif
+  #if defined(USER_DESC_22) && defined(USER_GCODE_22)
+    ACTION_ITEM_P(PSTR(USER_DESC_22), []{ _lcd_user_gcode(PSTR(USER_GCODE_22 _DONE_SCRIPT)); });
+  #endif
+  #if defined(USER_DESC_23) && defined(USER_GCODE_23)
+    ACTION_ITEM_P(PSTR(USER_DESC_23), []{ _lcd_user_gcode(PSTR(USER_GCODE_23 _DONE_SCRIPT)); });
+  #endif
+  #if defined(USER_DESC_24) && defined(USER_GCODE_24)
+    ACTION_ITEM_P(PSTR(USER_DESC_24), []{ _lcd_user_gcode(PSTR(USER_GCODE_24 _DONE_SCRIPT)); });
+  #endif
+  #if defined(USER_DESC_25) && defined(USER_GCODE_25)
+    ACTION_ITEM_P(PSTR(USER_DESC_25), []{ _lcd_user_gcode(PSTR(USER_GCODE_25 _DONE_SCRIPT)); });
   #endif
   END_MENU();
 }
