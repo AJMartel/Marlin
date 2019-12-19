@@ -110,7 +110,7 @@ void menu_user() {
   #if defined(USER_DESC_20) && defined(USER_GCODE_20)
     ACTION_ITEM_P(PSTR(USER_DESC_20), []{ _lcd_user_gcode(PSTR(USER_GCODE_20 _DONE_SCRIPT)); });
   #endif
-    #if defined(USER_DESC_21) && defined(USER_GCODE_21)
+  #if defined(USER_DESC_21) && defined(USER_GCODE_21)
     ACTION_ITEM_P(PSTR(USER_DESC_21), []{ _lcd_user_gcode(PSTR(USER_GCODE_21 _DONE_SCRIPT)); });
   #endif
   #if defined(USER_DESC_22) && defined(USER_GCODE_22)
