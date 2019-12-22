@@ -296,8 +296,36 @@ void menu_advanced_settings();
     END_MENU();
   }
 
-  void menu_preheat_material1_settings() { _menu_configuration_preheat_settings(0); }
-  void menu_preheat_material2_settings() { _menu_configuration_preheat_settings(1); }
+  #if PREHEAT_MATERIAL_COUNT < 0
+    void menu_preheat_material1_settings() { _menu_configuration_preheat_settings(0); }
+  #endif
+  #if PREHEAT_MATERIAL_COUNT < 1
+    void menu_preheat_material2_settings() { _menu_configuration_preheat_settings(1); }
+  #endif
+  #if PREHEAT_MATERIAL_COUNT < 2
+    void menu_preheat_material3_settings() { _menu_configuration_preheat_settings(2); }
+  #endif
+  #if PREHEAT_MATERIAL_COUNT < 3
+    void menu_preheat_material4_settings() { _menu_configuration_preheat_settings(3); }
+  #endif
+  #if PREHEAT_MATERIAL_COUNT < 4
+    void menu_preheat_material5_settings() { _menu_configuration_preheat_settings(4); }
+  #endif
+  #if PREHEAT_MATERIAL_COUNT < 5
+    void menu_preheat_material6_settings() { _menu_configuration_preheat_settings(5); }
+  #endif
+  #if PREHEAT_MATERIAL_COUNT < 6
+    void menu_preheat_material7_settings() { _menu_configuration_preheat_settings(6); }
+  #endif
+  #if PREHEAT_MATERIAL_COUNT < 7
+    void menu_preheat_material8_settings() { _menu_configuration_preheat_settings(7); }
+  #endif
+  #if PREHEAT_MATERIAL_COUNT < 8
+    void menu_preheat_material9_settings() { _menu_configuration_preheat_settings(8); }
+  #endif
+  #if PREHEAT_MATERIAL_COUNT < 9
+    void menu_preheat_material10_settings() { _menu_configuration_preheat_settings(9); }
+  #endif
 
 #endif
 
@@ -382,8 +410,36 @@ void menu_configuration() {
 
   #if DISABLED(SLIM_LCD_MENUS)
     // Preheat configurations
-    SUBMENU(MSG_PREHEAT_1_SETTINGS, menu_preheat_material1_settings);
-    SUBMENU(MSG_PREHEAT_2_SETTINGS, menu_preheat_material2_settings);
+    #if PREHEAT_MATERIAL_COUNT < 0
+      SUBMENU(MSG_PREHEAT_1_SETTINGS, menu_preheat_material1_settings);
+    #endif
+    #if PREHEAT_MATERIAL_COUNT < 1
+      SUBMENU(MSG_PREHEAT_2_SETTINGS, menu_preheat_material2_settings);
+    #endif
+    #if PREHEAT_MATERIAL_COUNT < 2
+      SUBMENU(MSG_PREHEAT_3_SETTINGS, menu_preheat_material3_settings);
+    #endif
+    #if PREHEAT_MATERIAL_COUNT < 3
+      SUBMENU(MSG_PREHEAT_4_SETTINGS, menu_preheat_material4_settings);
+    #endif
+    #if PREHEAT_MATERIAL_COUNT < 4
+      SUBMENU(MSG_PREHEAT_5_SETTINGS, menu_preheat_material5_settings);
+    #endif
+    #if PREHEAT_MATERIAL_COUNT < 5
+      SUBMENU(MSG_PREHEAT_6_SETTINGS, menu_preheat_material6_settings);
+    #endif
+    #if PREHEAT_MATERIAL_COUNT < 6
+      SUBMENU(MSG_PREHEAT_7_SETTINGS, menu_preheat_material7_settings);
+    #endif
+    #if PREHEAT_MATERIAL_COUNT < 7
+      SUBMENU(MSG_PREHEAT_8_SETTINGS, menu_preheat_material8_settings);
+    #endif
+    #if PREHEAT_MATERIAL_COUNT < 8
+      SUBMENU(MSG_PREHEAT_9_SETTINGS, menu_preheat_material9_settings);
+    #endif
+    #if PREHEAT_MATERIAL_COUNT < 9
+      SUBMENU(MSG_PREHEAT_10_SETTINGS, menu_preheat_material10_settings);
+    #endif
   #endif
 
   #if ENABLED(EEPROM_SETTINGS)
