@@ -200,7 +200,11 @@
 #define MSG_PROBE_OFFSET                    "Probe Offset"
 #define MSG_SKEW_MIN                        "min_skew_factor: "
 #define MSG_SKEW_MAX                        "max_skew_factor: "
-#define MSG_ERR_MATERIAL_INDEX              "M145 S<index> out of range (0-1)"
+#if PREHEAT_MATERIAL_COUNT < 1
+  #define MSG_ERR_MATERIAL_INDEX            "M145 S<index> error, not defined)"
+#else
+  #define MSG_ERR_MATERIAL_INDEX            "M145 S<index> out of range (0- PREHEAT_MATERIAL_COUNT  )"
+#endif
 #define MSG_ERR_M421_PARAMETERS             "M421 incorrect parameter usage"
 #define MSG_ERR_BAD_PLANE_MODE              "G5 requires XY plane mode"
 #define MSG_ERR_MESH_XY                     "Mesh point cannot be resolved"
