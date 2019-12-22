@@ -1436,15 +1436,55 @@
 // @section temperature
 
 // Preheat Constants
-#define PREHEAT_1_LABEL       "PLA"
+#define PREHEAT_1_LABEL       "User"
 #define PREHEAT_1_TEMP_HOTEND 180
-#define PREHEAT_1_TEMP_BED     70
+#define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
-#define PREHEAT_2_LABEL       "ABS"
-#define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    110
+#define PREHEAT_2_LABEL       "PLA"
+#define PREHEAT_2_TEMP_HOTEND 205
+#define PREHEAT_2_TEMP_BED     60
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
+
+#define PREHEAT_3_LABEL       "ABS"
+#define PREHEAT_3_TEMP_HOTEND 240
+#define PREHEAT_3_TEMP_BED    110
+#define PREHEAT_3_FAN_SPEED     0 // Value from 0 to 255
+
+#define PREHEAT_4_LABEL       "HIPS"
+#define PREHEAT_4_TEMP_HOTEND 220 //HIPS
+#define PREHEAT_4_TEMP_BED    100
+#define PREHEAT_4_FAN_SPEED     0 // Value from 0 to 255
+
+#define PREHEAT_5_LABEL       "PP"
+#define PREHEAT_5_TEMP_HOTEND 254 //PP
+#define PREHEAT_5_TEMP_BED    100
+#define PREHEAT_5_FAN_SPEED     0 // Value from 0 to 255
+
+#define PREHEAT_6_LABEL       "PET"
+#define PREHEAT_6_TEMP_HOTEND 240 //PET
+#define PREHEAT_6_TEMP_BED     90
+#define PREHEAT_6_FAN_SPEED     0 // Value from 0 to 255
+
+#define PREHEAT_7_LABEL       "FLEX"
+#define PREHEAT_7_TEMP_HOTEND 230  //FLEX
+#define PREHEAT_7_TEMP_BED     50
+#define PREHEAT_7_FAN_SPEED     0  // Value from 0 to 255
+
+#define PREHEAT_8_LABEL       "NYLON"
+#define PREHEAT_8_TEMP_HOTEND 240 //NYLON
+#define PREHEAT_8_TEMP_BED     80
+#define PREHEAT_8_FAN_SPEED     0 // Value from 0 to 255
+
+#define PREHEAT_9_LABEL       "PLA+"
+#define PREHEAT_9_TEMP_HOTEND 205
+#define PREHEAT_9_TEMP_BED    110
+#define PREHEAT_9_FAN_SPEED     0 // Value from 0 to 255
+
+#define PREHEAT_10_LABEL       "TPU"
+#define PREHEAT_10_TEMP_HOTEND 235
+#define PREHEAT_10_TEMP_BED     70
+#define PREHEAT_10_FAN_SPEED     0 // Value from 0 to 255
 
 /**
  * Nozzle Park
