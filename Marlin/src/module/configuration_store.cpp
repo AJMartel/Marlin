@@ -237,9 +237,31 @@ typedef struct SettingsDataStruct {
   //
   // ULTIPANEL
   //
-  int16_t ui_preheat_hotend_temp[2],                    // M145 S0 H
-          ui_preheat_bed_temp[2];                       // M145 S0 B
-  uint8_t ui_preheat_fan_speed[2];                      // M145 S0 F
+  #if defined PREHEAT_10_LABEL
+    #define PREHEAT_MATERIAL_COUNT 10
+  #elif defined PREHEAT_9_LABEL
+    #define PREHEAT_MATERIAL_COUNT 9
+  #elif defined PREHEAT_8_LABEL
+    #define PREHEAT_MATERIAL_COUNT 8
+  #elif defined PREHEAT_7_LABEL
+    #define PREHEAT_MATERIAL_COUNT 7
+  #elif defined PREHEAT_6_LABEL
+    #define PREHEAT_MATERIAL_COUNT 6
+  #elif defined PREHEAT_5_LABEL
+    #define PREHEAT_MATERIAL_COUNT 5
+  #elif defined PREHEAT_4_LABEL
+    #define PREHEAT_MATERIAL_COUNT 4
+  #elif defined PREHEAT_3_LABEL
+    #define PREHEAT_MATERIAL_COUNT 3
+  #elif defined PREHEAT_2_LABEL
+    #define PREHEAT_MATERIAL_COUNT 2
+  #elif defined PREHEAT_1_LABEL
+    #define PREHEAT_MATERIAL_COUNT 1
+  #endif       
+
+  int16_t ui_preheat_hotend_temp[PREHEAT_MATERIAL_COUNT], // M145 S0 H
+          ui_preheat_bed_temp[PREHEAT_MATERIAL_COUNT];    // M145 S0 B
+  uint8_t ui_preheat_fan_speed[PREHEAT_MATERIAL_COUNT];   // M145 S0 F
 
   //
   // PIDTEMP
@@ -767,18 +789,52 @@ void MarlinSettings::postprocess() {
       _FIELD_TEST(ui_preheat_hotend_temp);
 
       #if HOTENDS && HAS_LCD_MENU
-        const int16_t (&ui_preheat_hotend_temp)[2]  = ui.preheat_hotend_temp,
-                      (&ui_preheat_bed_temp)[2]     = ui.preheat_bed_temp;
-        const uint8_t (&ui_preheat_fan_speed)[2]    = ui.preheat_fan_speed;
+        const int16_t (&ui_preheat_hotend_temp)[PREHEAT_MATERIAL_COUNT]  = ui.preheat_hotend_temp,
+                      (&ui_preheat_bed_temp)[PREHEAT_MATERIAL_COUNT]     = ui.preheat_bed_temp;
+        const uint8_t (&ui_preheat_fan_speed)[PREHEAT_MATERIAL_COUNT]    = ui.preheat_fan_speed;
       #else
-        constexpr int16_t ui_preheat_hotend_temp[2] = { PREHEAT_1_TEMP_HOTEND, PREHEAT_2_TEMP_HOTEND },
-                          ui_preheat_bed_temp[2]    = { PREHEAT_1_TEMP_BED, PREHEAT_2_TEMP_BED };
-        constexpr uint8_t ui_preheat_fan_speed[2]   = { PREHEAT_1_FAN_SPEED, PREHEAT_2_FAN_SPEED };
-      #endif
+        constexpr int16_t ui_preheat_hotend_temp[PREHEAT_MATERIAL_COUNT] = { PREHEAT_1_TEMP_HOTEND, PREHEAT_2_TEMP_HOTEND },
+                          ui_preheat_bed_temp[PREHEAT_MATERIAL_COUNT]    = { PREHEAT_1_TEMP_BED, PREHEAT_2_TEMP_BED };
+        constexpr uint8_t ui_preheat_fan_speed[PREHEAT_MATERIAL_COUNT]   = { PREHEAT_1_FAN_SPEED, PREHEAT_2_FAN_SPEED };
+        #define PREHEAT(i)  ui_preheat_hotend_temp[i-1] = PREHEAT_##i##_TEMP_HOTEND; ui_preheat_bed_temp[i-1] = PREHEAT_##i##_TEMP_BED  ui_preheat_fan_speed[i-1] = PREHEAT_##i##_FAN_SPEED;   
+        #if PREHEAT_MATERIAL_COUNT >0
+          PREHEAT(1)
+        #endif
+        #if PREHEAT_MATERIAL_COUNT >1
+          PREHEAT(2)
+        #endif
+        #if PREHEAT_MATERIAL_COUNT >2
+          PREHEAT(3)
+        #endif
+        #if PREHEAT_MATERIAL_COUNT >3
+          PREHEAT(4)
+        #endif
+        #if PREHEAT_MATERIAL_COUNT >4
+          PREHEAT(5)
+        #endif
+        #if PREHEAT_MATERIAL_COUNT >5
+          PREHEAT(6)
+        #endif
+        #if PREHEAT_MATERIAL_COUNT >6
+          PREHEAT(7)
+        #endif
+        #if PREHEAT_MATERIAL_COUNT >7
+          PREHEAT(8)
+        #endif
+        #if PREHEAT_MATERIAL_COUNT >8
+          PREHEAT(9)
+        #endif
+        #if PREHEAT_MATERIAL_COUNT >9
+          PREHEAT(10)
+        #endif
+        #undef PREHEAT()
+      #endif    
 
-      EEPROM_WRITE(ui_preheat_hotend_temp);
-      EEPROM_WRITE(ui_preheat_bed_temp);
-      EEPROM_WRITE(ui_preheat_fan_speed);
+      #if PREHEAT_MATERIAL_COUNT >0
+        EEPROM_WRITE(ui_preheat_hotend_temp);
+        EEPROM_WRITE(ui_preheat_bed_temp);
+        EEPROM_WRITE(ui_preheat_fan_speed);
+      #endif
     }
 
     //
@@ -1577,12 +1633,13 @@ void MarlinSettings::postprocess() {
         _FIELD_TEST(ui_preheat_hotend_temp);
 
         #if HOTENDS && HAS_LCD_MENU
-          int16_t (&ui_preheat_hotend_temp)[2]  = ui.preheat_hotend_temp,
-                  (&ui_preheat_bed_temp)[2]     = ui.preheat_bed_temp;
-          uint8_t (&ui_preheat_fan_speed)[2]    = ui.preheat_fan_speed;
+          int16_t (&ui_preheat_hotend_temp)[PREHEAT_MATERIAL_COUNT]  = ui.preheat_hotend_temp,
+                  (&ui_preheat_bed_temp)[PREHEAT_MATERIAL_COUNT]     = ui.preheat_bed_temp;
+          uint8_t (&ui_preheat_fan_speed)[PREHEAT_MATERIAL_COUNT]    = ui.preheat_fan_speed;
         #else
-          int16_t ui_preheat_hotend_temp[2], ui_preheat_bed_temp[2];
-          uint8_t ui_preheat_fan_speed[2];
+          int16_t ui_preheat_hotend_temp[PREHEAT_MATERIAL_COUNT], 
+                  ui_preheat_bed_temp[PREHEAT_MATERIAL_COUNT];
+          uint8_t ui_preheat_fan_speed[PREHEAT_MATERIAL_COUNT];
         #endif
         EEPROM_READ(ui_preheat_hotend_temp); // 2 floats
         EEPROM_READ(ui_preheat_bed_temp);    // 2 floats
@@ -2437,12 +2494,38 @@ void MarlinSettings::reset() {
   //
 
   #if HOTENDS && HAS_LCD_MENU
-    ui.preheat_hotend_temp[0] = PREHEAT_1_TEMP_HOTEND;
-    ui.preheat_hotend_temp[1] = PREHEAT_2_TEMP_HOTEND;
-    ui.preheat_bed_temp[0] = PREHEAT_1_TEMP_BED;
-    ui.preheat_bed_temp[1] = PREHEAT_2_TEMP_BED;
-    ui.preheat_fan_speed[0] = PREHEAT_1_FAN_SPEED;
-    ui.preheat_fan_speed[1] = PREHEAT_2_FAN_SPEED;
+    #define PREHEAT(i)  ui.preheat_hotend_temp[i-1] = PREHEAT_##i##_TEMP_HOTEND;  ui.preheat_bed_temp[i-1] = PREHEAT_##i##_TEMP_BED; ui.preheat_fan_speed[i-1] = PREHEAT_##i##_FAN_SPEED;
+      #if PREHEAT_MATERIAL_COUNT >0
+        PREHEAT(1)
+      #endif
+      #if PREHEAT_MATERIAL_COUNT >1
+        PREHEAT(2)
+      #endif
+      #if PREHEAT_MATERIAL_COUNT >2
+        PREHEAT(3)
+      #endif
+      #if PREHEAT_MATERIAL_COUNT >3
+        PREHEAT(4)
+      #endif
+      #if PREHEAT_MATERIAL_COUNT >4
+        PREHEAT(5)
+      #endif
+      #if PREHEAT_MATERIAL_COUNT >5
+        PREHEAT(6)
+      #endif
+      #if PREHEAT_MATERIAL_COUNT >6
+        PREHEAT(7)
+      #endif
+      #if PREHEAT_MATERIAL_COUNT >7
+        PREHEAT(8)
+      #endif
+      #if PREHEAT_MATERIAL_COUNT >8
+        PREHEAT(9)
+      #endif
+      #if PREHEAT_MATERIAL_COUNT >9
+        PREHEAT(10)
+      #endif
+      #undef PREHEAT()
   #endif
 
   //
