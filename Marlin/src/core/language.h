@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -135,14 +135,7 @@
 
 #endif
 
-// Common LCD messages
-
-  /* nothing here yet */
-
-// Common serial messages
-#define MSG_MARLIN "Marlin"
-
-// Serial Console Messages (do not translate those!)
+// Common Serial Console Messages (do not translate those!)
 
 #define MSG_ENQUEUEING                      "enqueueing \""
 #define MSG_POWERUP                         "PowerUp"
@@ -221,6 +214,10 @@
 #define MSG_SOFT_ENDSTOPS                   "Soft endstops: "
 #define MSG_SOFT_MIN                        "  Min: "
 #define MSG_SOFT_MAX                        "  Max: "
+
+#define MSG_SAVED_POS                       "Position saved"
+#define MSG_RESTORING_POS                   "Restoring position"
+#define MSG_INVALID_POS_SLOT                "Invalid slot. Total: "
 
 #define MSG_SD_CANT_OPEN_SUBDIR             "Cannot open subdir "
 #define MSG_SD_INIT_FAIL                    "SD init fail"
@@ -359,6 +356,8 @@
   #define LCD_STR_N3 "3"
   #define LCD_STR_N4 "4"
   #define LCD_STR_N5 "5"
+  #define LCD_STR_N6 "6"
+  #define LCD_STR_N7 "7"
 #else
   #define LCD_FIRST_TOOL '1'
   #define LCD_STR_N0 "1"
@@ -367,6 +366,8 @@
   #define LCD_STR_N3 "4"
   #define LCD_STR_N4 "5"
   #define LCD_STR_N5 "6"
+  #define LCD_STR_N6 "7"
+  #define LCD_STR_N7 "8"
 #endif
 
 #define LCD_STR_E0 "E" LCD_STR_N0
@@ -375,6 +376,8 @@
 #define LCD_STR_E3 "E" LCD_STR_N3
 #define LCD_STR_E4 "E" LCD_STR_N4
 #define LCD_STR_E5 "E" LCD_STR_N5
+#define LCD_STR_E6 "E" LCD_STR_N6
+#define LCD_STR_E7 "E" LCD_STR_N7
 
 #include "multi_language.h"   // Allow multiple languages
 

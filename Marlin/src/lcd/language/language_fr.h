@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -235,10 +235,10 @@ namespace Language_fr {
   PROGMEM Language_Str MSG_BED                             = _UxGT("Lit");
   PROGMEM Language_Str MSG_CHAMBER                         = _UxGT("Caisson");
   PROGMEM Language_Str MSG_FAN_SPEED                       = _UxGT("Vit.  ventil.  "); // 15 car. max
-  PROGMEM Language_Str MSG_FAN_SPEED_N                     = _UxGT("Vit.  ventil. =");
-  PROGMEM Language_Str MSG_STORED_FAN_N                    = _UxGT("Vit.  enreg.  =");
+  PROGMEM Language_Str MSG_FAN_SPEED_N                     = _UxGT("Vit.  ventil. ~");
+  PROGMEM Language_Str MSG_STORED_FAN_N                    = _UxGT("Vit.  enreg.  ~");
   PROGMEM Language_Str MSG_EXTRA_FAN_SPEED                 = _UxGT("Extra ventil.  ");
-  PROGMEM Language_Str MSG_EXTRA_FAN_SPEED_N               = _UxGT("Extra ventil. =");
+  PROGMEM Language_Str MSG_EXTRA_FAN_SPEED_N               = _UxGT("Extra ventil. ~");
 
   PROGMEM Language_Str MSG_FLOW                            = _UxGT("Flux");
   PROGMEM Language_Str MSG_FLOW_N                          = _UxGT("Flux ~");
@@ -384,7 +384,7 @@ namespace Language_fr {
   PROGMEM Language_Str MSG_SHORT_HOUR                      = _UxGT("h"); // One character only
   PROGMEM Language_Str MSG_SHORT_MINUTE                    = _UxGT("m"); // One character only
 
-  PROGMEM Language_Str MSG_HEATING                         = _UxGT("En chauffe...");
+  PROGMEM Language_Str MSG_HEATING                         = _UxGT("en chauffe...");
   PROGMEM Language_Str MSG_COOLING                         = _UxGT("Refroidissement");
   PROGMEM Language_Str MSG_BED_HEATING                     = _UxGT("Lit en chauffe...");
   PROGMEM Language_Str MSG_BED_COOLING                     = _UxGT("Refroid. du lit...");
@@ -416,6 +416,9 @@ namespace Language_fr {
   PROGMEM Language_Str MSG_INFO_EXTRUDERS                  = _UxGT("Extrudeurs");
   PROGMEM Language_Str MSG_INFO_BAUDRATE                   = _UxGT("Bauds");
   PROGMEM Language_Str MSG_INFO_PROTOCOL                   = _UxGT("Protocole");
+  PROGMEM Language_Str MSG_INFO_RUNAWAY_OFF                = _UxGT("Protection inactive");
+  PROGMEM Language_Str MSG_INFO_RUNAWAY_ON                 = _UxGT("Protection active");
+
   PROGMEM Language_Str MSG_CASE_LIGHT                      = _UxGT("Lumière caisson");
   PROGMEM Language_Str MSG_CASE_LIGHT_BRIGHTNESS           = _UxGT("Luminosité");
 
@@ -437,7 +440,7 @@ namespace Language_fr {
 
   PROGMEM Language_Str MSG_INFO_MIN_TEMP                   = _UxGT("Temp Min");
   PROGMEM Language_Str MSG_INFO_MAX_TEMP                   = _UxGT("Temp Max");
-  PROGMEM Language_Str MSG_INFO_PSU                        = _UxGT("Alimentation");
+  PROGMEM Language_Str MSG_INFO_PSU                        = _UxGT("Alim.");
   PROGMEM Language_Str MSG_DRIVE_STRENGTH                  = _UxGT("Puiss. moteur ");
   PROGMEM Language_Str MSG_DAC_PERCENT_X                   = _UxGT("X Driver %");
   PROGMEM Language_Str MSG_DAC_PERCENT_Y                   = _UxGT("Y Driver %");
